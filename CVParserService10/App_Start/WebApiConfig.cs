@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using CVParserService10.Security;
 using System.Web.Http;
 
 namespace CVParserService10
@@ -20,6 +18,7 @@ namespace CVParserService10
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.Filters.Add(new RequireHttpsAttribute());
             config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
